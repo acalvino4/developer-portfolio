@@ -1,0 +1,25 @@
+// @keyframes disolve-overlay {
+//   0% {
+//     opacity: 1;
+//   }
+//   100% {
+//     opacity: 0;
+//   }
+// }
+
+// @mixin background-fade-in($background-string, $fallback-color: black) {
+//   background: $background-string $fallback-color;
+
+//   &::before {
+//     content: '';
+//     @extend .contained;
+//     // position: absolute;
+//     // top: 0;
+//     // right: 0;
+//     // bottom: 0;
+//     // left: 0;
+//     background-color: $fallback-color;
+//     animation: 1s ease 1 disolve-overlay;
+//     animation-fill-mode: forwards;
+//   }
+// }

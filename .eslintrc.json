@@ -24,7 +24,13 @@
         "react/jsx-filename-extension": [1, { "extensions": [".tsx", ".jsx"] }],
         "react/jsx-props-no-spreading": 0,
         "react/react-in-jsx-scope": 0,
-        "no-unused-vars": "off"
-
+        "no-unused-vars": "off",
+        "jsx-quotes": [2, "prefer-single"],
+        "import/extensions": "off",
+        "import/no-unresolved": "off",
+        "comma-dangle": "off",
+        "jsx-a11y/anchor-is-valid": "off",
+        "jsx-a11y/label-has-associated-control": "off",
+        "max-len": "off"
     }
 }

@@ -1,0 +1,90 @@
+#portfolio {
+  // background: url('../public/img/portfolio2.jpg') center center / cover no-repeat fixed #000;
+  // @include background-fade-in(url('../public/img/portfolio2.jpg') center center / cover no-repeat fixed);
+
+  .carousel {
+    width: 100%;
+  }
+
+  .carousel-item img {
+    height: 25vh;
+  }
+
+  // .card {
+  //   opacity: 0;
+  //   transform: translateY(50px);
+  //   transition: opacity 1s, transform 1s;
+
+  //   &.loaded {
+  //     opacity: 1;
+  //     transform: initial;
+  //   }
+  // }
+
+  .card-img {
+    opacity: 0;
+    transition: opacity 1s;
+
+    &.loaded {
+      opacity: 1;
+    }
+  }
+
+  .card {
+
+    .fade-out {
+      opacity: 1;
+      transition: opacity .15s .15s;
+    }
+
+    .slide-down-in {
+      transform: translateY(-100%);
+      transition: transform .3s ease-out;
+    }
+
+    svg {
+      @media(hover: hover) {
+        display: none;
+      }
+    }
+  }
+
+  .card:hover {
+
+    .fade-out {
+      opacity: 0;
+      transition: opacity .15s;
+    }
+
+    .slide-down-in {
+      transform: initial;
+      transition: transform .3s ease-in;
+    }
+  }
+
+  .card-img-overlay.secondary {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  // not necessary if touch devices activate hover on tap
+  // .card:hover {
+  //   @extend .secondary;
+  // }
+
+  // #search-col {
+  //   @each $breakpoint, $container-max-width in $container-max-widths {
+  //     // ensure fixed column styles only apply at larger breakpoints
+  //     @if $breakpoint == lg or $breakpoint == xl or $breakpoint == xxl {
+  //       @include media-breakpoint-up($breakpoint) {
+  //         max-width: calc(#{$container-max-width}/3);
+  //       }
+  //     }
+  //   }
+  
+  //   position: relative;
+  //   @include media-breakpoint-up(lg) {
+  //     position: fixed;
+  //   }
+  // }
+
+}

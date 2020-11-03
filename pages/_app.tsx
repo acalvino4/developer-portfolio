@@ -1,8 +1,20 @@
-import '../styles/globals.scss';
+import { FC, useEffect } from 'react';
+import 'styles/all.scss';
 import { AppProps } from 'next/app';
+import { GlobalProvider } from 'lib/statestore';
+import { closeNav } from 'lib/util';
 
-function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
-}
+const App: FC<AppProps> = ({ Component, pageProps }: AppProps) => {
+  useEffect(() => {
+    if (window) {
+      window.addEventListener('resize', closeNav('nav-toggler'));
+    }
+  }, []);
+  return (
+    <GlobalProvider>
+      <Component {...pageProps} />
+    </GlobalProvider>
+  );
+};
 
 export default App;

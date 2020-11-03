@@ -1,0 +1,119 @@
+html {
+  background-color: $body-bg;
+}
+
+html, body, #__next {
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  height: 100vh;
+}
+
+#main-navbar {
+  transition: background-color .5s ease-in-out;
+
+  &.show {
+    background-color: rgba(0, 0, 0, 0.75);
+  }
+
+  .nav-link {
+    text-align: right;
+  }
+}
+
+.hero-block {
+  max-width: 768px;
+  background-color: rgba(0, 0, 0, 0.75);
+  box-shadow: 0 0 32px 32px rgba(0, 0, 0, 0.77);
+
+  @include media-breakpoint-up(xl) {
+    max-width: 992px;
+  }
+}
+
+// .contained {
+//   position: absolute !important;
+//   top: 0;
+//   right: 0;
+//   bottom: 0;
+//   left: 0;
+// }
+
+.article-header {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+section {
+  position: relative;
+}
+
+.display-5 {
+  @include font-size($display5-size);
+  font-weight: $display5-weight;
+  line-height: $display-line-height;
+}
+
+.display-6 {
+  @include font-size($display6-size);
+  font-weight: $display6-weight;
+  line-height: $display-line-height;
+}
+
+.svg-inline--fa {
+  cursor: pointer;
+}
+
+footer {
+  z-index: 1;
+
+  p {
+    font-size: calc(.75rem + .5vw);
+  }
+
+  a {
+    font-size: calc(.5rem + .75vw);
+    @extend .px-2;
+    @extend .px-sm-3;
+  }
+}
+
+img {
+  object-fit: cover;
+  object-position: center center;
+}
+
+img.background {
+  position: absolute;
+  object-position: center center;
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 1s;
+  filter: brightness(.65);
+
+  &.loaded {
+    opacity: 1;
+  }
+}
+
+#search-col {
+  @each $breakpoint, $container-max-width in $container-max-widths {
+    // ensure fixed column styles only apply at larger breakpoints
+    @if $breakpoint == lg or $breakpoint == xl or $breakpoint == xxl {
+      @include media-breakpoint-up($breakpoint) {
+        max-width: calc(#{$container-max-width}/3);
+      }
+    }
+  }
+
+  position: relative;
+  @include media-breakpoint-up(lg) {
+    position: fixed;
+  }
+}
+
+.card {
+  background-color: inherit;
+  border: none;
+}
