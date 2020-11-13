@@ -1,0 +1,51 @@
+{
+  "experiences": [
+    {
+      "title": "Full Stack Software Engineer",
+      "dates": "June - July 2020",
+      "company": "Source and Summit",
+      "location": "Denver, CO",
+      "bullets": [
+        "Added features and fixed bugs in company's flagship product, a web app built with React, Typescript, Bootstrap, and MariaDB"
+      ]
+    },
+    {
+      "title": "DataOps Engineer (Hadoop Admin)",
+      "dates": "June 2019 - June 2020",
+      "company": "Arrow Electronics",
+      "location": "Centennial, CO",
+      "bullets": [
+        "Administred big data environment on Hadoop (Cloudera Distribution) by",
+        [
+          "troubleshooting and solving errors that developers encounter",
+          "performing builds of CDH environments",
+          "improving cluster speed through tuning of hdfs, impala, and other services",
+          "monitoring and provisioning resources for current and new environments",
+          "administering access to hardware resources and data",
+          "maintaining database backup and replication strategies"
+        ],
+        "Developed and implemented strategies to improve envirenment stability, scalability, efficiency, resource accountability, accessibility, security, and cost"
+      ]
+    },
+    {
+      "title": "Embedded Systems Developer",
+      "dates": "Oct 2016 - May 2017",
+      "company": "Benedictine College",
+      "location": "Atchision, KS",
+      "bullets": [
+        "Enabled communication with (and subsequently, motion control of) physical machinery via Labview modules and CANopen interface registers",
+        "Designed and implemented graphical user interface"
+      ]
+    },
+    {
+      "title": "Research Experience for Undergrads Intern",
+      "dates": "May - July 2016",
+      "company": "University of North Texas",
+      "location": " Denton, TX",
+      "bullets": [
+        "Assisted graduate student in testing machine learing on encrypted data",
+        "Prepared and cleaned large data sets with python"
+      ]
+    }
+  ]
+}

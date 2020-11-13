@@ -14,10 +14,15 @@ const IndexSection: FC<IndexSection> = ({
   <section id={id} className={`bg-${bgColor}`}>
     <Container className='py-7'>
       <Row className='justify-content-lg-center'>
-        <Col xs={6} xl={5} className='d-flex flex-column align-items-center justify-content-center'>
+        <Col
+          xs={12}
+          sm={6}
+          xl={5}
+          className='d-flex flex-column align-items-center justify-content-center'
+        >
           {left}
         </Col>
-        <Col xs={6} xl={5} className='d-flex flex-column align-items-center justify-content-center'>
+        <Col xs={12} sm={6} xl={5} className='d-flex flex-column align-items-center justify-content-center'>
           {right}
         </Col>
       </Row>

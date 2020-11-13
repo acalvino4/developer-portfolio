@@ -1,0 +1,11 @@
+{
+  "languages": [
+    "Javascript", "HTML/CSS", "Python", "Bash", "SQL", "Java", "Ruby", "PHP"
+  ],
+  "skills": [
+    "Web Development", "Linux Administration", "Hadoop Administration", "Database Administration", "Data Analysis"
+  ],
+  "frameworks": [
+    "React", "Bootstrap", "Express", "Angular", "Rails", "Flask"
+  ]
+}

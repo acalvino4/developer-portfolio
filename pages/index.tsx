@@ -10,6 +10,7 @@ import { getGlobalContext } from 'lib/statestore';
 import { setThisAsLoaded } from 'lib/util';
 import { Button } from 'react-bootstrap';
 import IndexSection from 'components/IndexSection';
+import IndexSection2 from 'components/IndexSection2';
 
 const home: FC = () => {
   const layoutRef = useRef<HTMLDivElement>(null);
@@ -42,6 +43,17 @@ const home: FC = () => {
           </div>
         </div>
       </section>
+      <IndexSection2 id='projects' bgColor='bg2' iconSide='left'>
+        {[
+          <>
+            <h2 className='mb-3'>I have coded some cool things...</h2>
+            <Link href='/portfolio' passHref>
+              <Button variant='outline-light' className='my-1'>View Portfolio</Button>
+            </Link>
+          </>,
+          <FAI icon={faTools} size='5x' />
+        ]}
+      </IndexSection2>
       <IndexSection
         id='projects'
         left={(

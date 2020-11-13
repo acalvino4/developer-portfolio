@@ -1,4 +1,4 @@
-import { FC, PropsWithChildren } from 'react';
+import { FC } from 'react';
 import { GetStaticProps } from 'next';
 import Link from 'next/link';
 import { Container, Col, Row } from 'react-bootstrap';
