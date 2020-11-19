@@ -1,5 +1,22 @@
 #resume {
 
+  h2 {
+    @extend .mb-3;
+  }
+
+  .resume-section {
+    @extend .mb-3;
+  }
+
+  .resume-block {
+    @extend .px-md-3;
+    @extend .py-md-1
+  }
+
+  h5, h6 {
+    font-weight: 400;
+  }
+
   hr {
     width: 100%;
     height: 0;

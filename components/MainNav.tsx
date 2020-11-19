@@ -13,17 +13,17 @@ interface MainNavProps extends NavbarProps {
 }
 
 const MainNav: FC<MainNavProps> = ({ page }: MainNavProps) => {
-  const navOpacity = getGlobalContext('navOpacity');
+  const navInvisible = getGlobalContext('navInvisible');
   const navbarRef = useRef<HTMLElement>(null);
   const [expanded, setExpanded] = useState(false);
   useEffect(() => {
     if (navbarRef.current) {
       const color = window.getComputedStyle(navbarRef.current).backgroundColor;
-      const opacity = expanded ? 75 : navOpacity;
+      const opacity = expanded || !navInvisible ? 75 : 0;
       const newColor = modOpacity(color, opacity);
       navbarRef.current.style.backgroundColor = newColor;
     }
-  }, [navOpacity, expanded]);
+  }, [navInvisible, expanded]);
 
   const setNavHeight = setGlobalContext('navHeight');
   const measuredRef = useCallback((node: HTMLElement) => {

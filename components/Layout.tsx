@@ -4,47 +4,32 @@ import {
 } from 'react';
 import Head from 'next/head';
 import { throttle } from 'lodash';
-import { setGlobalContext } from 'lib/statestore';
-import { closeNav } from 'lib/util';
+import { closeNav, useScrollHandler } from 'lib/util';
 import composeRefs from '@seznam/compose-react-refs';
 import MainNav from './MainNav';
 import Footer from './Footer';
 
 type LayoutProps = PropsWithChildren<{
-  page: string,
-  title: string,
-  scrollHandler?: (...args: any) => any
+  page: string
+  title: string
+  navChangeAfterHero?: boolean
 }>;
 
 const Layout = forwardRef<HTMLDivElement, LayoutProps>(({
-  children, page, title, scrollHandler
+  children, page, title, navChangeAfterHero = false
 }: LayoutProps, ref) => {
-  const divref = useRef<HTMLDivElement>(null);
-  const setNavOpacity = setGlobalContext('navOpacity');
-  const defaultScrollHandler = useCallback(() => {
-    const scrollPos = divref.current?.scrollTop || 0;
-    let newNavOpacity: number;
-    if (scrollPos === 0) {
-      newNavOpacity = 0;
-    } else {
-      newNavOpacity = 75;
-    }
-    setNavOpacity(newNavOpacity);
-  }, []);
+  const divRef = useRef<HTMLDivElement>(null);
+  const scrollHandler = useCallback(useScrollHandler(divRef, navChangeAfterHero), [page]);
   useEffect(() => {
-    if (scrollHandler) {
-      scrollHandler();
-    } else {
-      defaultScrollHandler();
-    }
+    scrollHandler();
   }, [page]);
 
   return (
     <div
       id={page}
       className='d-flex flex-column vh-100 overflow-auto'
-      onScroll={throttle(scrollHandler || defaultScrollHandler, 250)}
-      ref={composeRefs(ref, divref)}
+      onScroll={throttle(scrollHandler, 250)}
+      ref={composeRefs(ref, divRef)}
     >
       <Head>
         <title>{`${title} - Augustine Calvino`}</title>

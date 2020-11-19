@@ -1,60 +1,30 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 import Link from 'next/link';
-import { FC, useRef, useCallback } from 'react';
+import { FC, useRef } from 'react';
 import {
   Container, Row, Col, ResponsiveEmbed
 } from 'react-bootstrap';
-import { FontAwesomeIcon as FAI } from '@fortawesome/react-fontawesome';
-import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import Layout from 'components/Layout';
-import { setGlobalContext, getGlobalContext } from 'lib/statestore';
-import { setThisAsLoaded } from 'lib/util';
+import Hero from 'components/Hero';
 
 const about: FC = () => {
   const layoutRef = useRef<HTMLDivElement>(null);
-  const navHeight = getGlobalContext('navHeight');
-
-  const setNavOpacity = setGlobalContext('navOpacity');
-
-  const aboutScrollHandler = useCallback(() => {
-    const scrollPos = layoutRef.current?.scrollTop || 0;
-    let newNavOpacity: number;
-    if (scrollPos < window.innerHeight - navHeight) {
-      newNavOpacity = 0;
-    } else {
-      newNavOpacity = 75;
-    }
-    setNavOpacity(newNavOpacity);
-  }, []);
-
-  const scrollToContent = useCallback(() => {
-    layoutRef.current?.scrollTo({
-      top: window.innerHeight - navHeight,
-      behavior: 'smooth'
-    });
-  }, []);
 
   return (
     <Layout
       page='about'
       title='About'
-      scrollHandler={aboutScrollHandler}
+      navChangeAfterHero
       ref={layoutRef}
     >
-      <section id='hero' className='vh-100'>
-        <img src='img/about.jpg' alt='' className='background' ref={setThisAsLoaded} style={{ objectPosition: 'top right' }} />
-        <div className='position-absolute hero-block text-light top-50 left-0 left-xl-8 right-0 right-md-auto bottom-0 bottom-md-auto pt-3 pt-md-2 pl-5 pr-4 pr-lg-5  d-flex flex-column'>
-          <h3 className='display-3'>I started coding at 13...</h3>
-          <h6 className='display-6'>Now I am a software engineer and IT professional in the Denver metro area.</h6>
-          <div className='my-md-5 flex-grow-1 d-flex align-items-center justify-content-center'>
-            <FAI
-              icon={faChevronDown}
-              size='3x'
-              onClick={scrollToContent}
-            />
-          </div>
-        </div>
-      </section>
+      <Hero
+        layoutRef={layoutRef}
+        imgSrc='img/about.jpg'
+        imgStyles={{ objectPosition: 'top right' }}
+      >
+        <h3 className='display-3'>I started coding at 13...</h3>
+        <h6 className='display-6'>Now I am a software engineer and IT professional in the Denver metro area.</h6>
+      </Hero>
       <section id='bio' className='bg-bg1'>
         <Container>
           <Row className='justify-content-lg-center'>

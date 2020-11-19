@@ -14,7 +14,7 @@ const portfolio: FC<ProjectsProps> = ({ projects }: ProjectsProps) => {
   const searchTerms = getGlobalContext('searchTerm');
   return (
     <>
-      <img src='img/portfolio2.jpg' alt='' className='background' ref={setThisAsLoaded} />
+      <img src='img/portfolio.jpg' alt='' className='background' ref={setThisAsLoaded} />
       <Layout
         page='portfolio'
         title='Portfolio'

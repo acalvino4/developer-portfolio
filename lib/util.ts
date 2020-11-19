@@ -1,4 +1,5 @@
-// import { RefObject } from 'react';
+import { RefObject } from 'react';
+import { getGlobalContext, setGlobalContext } from 'lib/statestore';
 
 export const modOpacity = (color: string, alpha: number): string => {
   const match = /rgba?\((\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*(,\s*\d+[.\d+]*)*\)/g.exec(color) || [0, 0, 0, 0];
@@ -12,6 +13,27 @@ export const closeNav = (id: string) => () => {
   if (toggler && !toggler.classList.contains('collapsed')) {
     toggler.click();
   }
+};
+
+export const useScrollToContent = (layoutRef: RefObject<HTMLDivElement>) => {
+  const navHeight = getGlobalContext('navHeight');
+  return () => {
+    layoutRef.current?.scrollTo({
+      top: window.innerHeight - navHeight,
+      behavior: 'smooth'
+    });
+  };
+};
+
+export const useScrollHandler = (divRef: RefObject<HTMLDivElement>, navChangeAfterHero = false) => {
+  const setNavInvisible = setGlobalContext('navInvisible');
+  const navHeight = getGlobalContext('navHeight');
+
+  return () => {
+    const scrollPos = divRef.current?.scrollTop || 0;
+    const navInvisible = navChangeAfterHero ? (scrollPos < window.innerHeight - navHeight) : (scrollPos === 0);
+    setNavInvisible(navInvisible);
+  };
 };
 
 // copied from https://medium.com/ghostcoder/debounce-vs-throttle-vs-queue-execution-bcde259768

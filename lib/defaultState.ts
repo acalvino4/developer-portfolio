@@ -1,11 +1,11 @@
 export type stateType = {
-  navOpacity: number,
+  navInvisible: boolean,
   navHeight: number,
   searchTerm: string
 }
 
 export const defaultStates: stateType = {
-  navOpacity: 0,
+  navInvisible: true,
   navHeight: 58,
   searchTerm: ''
 };

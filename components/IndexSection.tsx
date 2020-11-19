@@ -9,7 +9,7 @@ type IndexSection = {
 };
 
 const IndexSection: FC<IndexSection> = ({
-  id, left, right, bgColor
+  id, left, right, bgColor = 'bg1'
 }: IndexSection) => (
   <section id={id} className={`bg-${bgColor}`}>
     <Container className='py-7'>
