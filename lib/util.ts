@@ -80,8 +80,13 @@ export const setThisAsLoaded = (el: HTMLImageElement) => {
   }
 };
 
-export const searchFilter = (project: any, terms: string) => {
-  const projectConcat = (project.id + project.type + project.heading + project.subHeading + project.synopsis + project.technologies + project.keywords).toLowerCase();
-  const allTermsFound = !terms.split(' ').some((term) => !projectConcat.includes(term));
+export const searchFilter = (metadata: {[key: string]: any}, terms: string) => {
+  const metastring = Object.entries(metadata).reduce((acc, [key, val]) => {
+    if (typeof val === 'string') {
+      return acc + val;
+    }
+    return acc;
+  }, '').toLowerCase();
+  const allTermsFound = !terms.split(' ').some((term) => !metastring.includes(term));
   return allTermsFound;
 };

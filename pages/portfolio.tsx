@@ -11,7 +11,8 @@ import { getProjects } from 'pages/api/projects';
 import { ProjectsProps } from 'lib/types';
 
 const portfolio: FC<ProjectsProps> = ({ projects }: ProjectsProps) => {
-  const searchTerms = getGlobalContext('searchTerm');
+  const searchTerms = getGlobalContext('searchTerms');
+
   return (
     <>
       <img src='img/portfolio.jpg' alt='' className='background' ref={setThisAsLoaded} />
@@ -32,12 +33,11 @@ const portfolio: FC<ProjectsProps> = ({ projects }: ProjectsProps) => {
             <Col xs={12} lg={{ span: 8, offset: 4 }}>
               <Row>
                 {projects
-                  .filter((project) => searchFilter(project, searchTerms))
-                  .map(((project) => (
+                  .filter((project) => searchFilter(project.data, searchTerms))
+                  .map((project) => (
                     <Col xs={12} sm={6} xl={4} className='p-2' key={project.id}>
                       <ProjectCard project={project} />
                     </Col>
-                  )
                   ))}
               </Row>
             </Col>

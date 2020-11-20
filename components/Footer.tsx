@@ -7,8 +7,8 @@ import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
 
 interface FooterProps extends ComponentProps<'footer'> {}
 
-const Footer: FC<FooterProps> = (props: FooterProps) => (
-  <footer className='flex-shrink-0 d-flex align-items-center'>
+const Footer: FC<FooterProps> = ({ className }: FooterProps) => (
+  <footer className={`flex-shrink-0 d-flex align-items-center ${className}`}>
     <p className='ml-3 my-0 mr-auto text-light'>&copy; 2020 Augustine Calvino</p>
     <Nav className='mr-2 mr-sm-0'>
       <Nav.Item>

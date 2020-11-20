@@ -12,11 +12,12 @@ import Footer from './Footer';
 type LayoutProps = PropsWithChildren<{
   page: string
   title: string
+  fixedFooter?: boolean
   navChangeAfterHero?: boolean
 }>;
 
 const Layout = forwardRef<HTMLDivElement, LayoutProps>(({
-  children, page, title, navChangeAfterHero = false
+  children, page, title, fixedFooter = false, navChangeAfterHero = false
 }: LayoutProps, ref) => {
   const divRef = useRef<HTMLDivElement>(null);
   const scrollHandler = useCallback(useScrollHandler(divRef, navChangeAfterHero), [page]);
@@ -42,7 +43,7 @@ const Layout = forwardRef<HTMLDivElement, LayoutProps>(({
       >
         {children}
       </main>
-      <Footer />
+      <Footer className={fixedFooter ? 'position-absolute bottom-0 w-100' : ''} />
     </div>
   );
 });

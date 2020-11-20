@@ -11,10 +11,10 @@ import { setGlobalContext } from 'lib/statestore';
 
 // const SearchBar: FC<SearchBarProps> = ({ handleSearch }: SearchBarProps) => {
 const SearchBar: FC = () => {
-  const setSearchTerm = setGlobalContext('searchTerm');
+  const setSearchTerms = setGlobalContext('searchTerms');
   const handleSearch = useMemo(() => {
     const debounced = debounce((event: ChangeEvent<HTMLInputElement>) => {
-      setSearchTerm(event.target.value.toLowerCase());
+      setSearchTerms(event.target.value.toLowerCase());
     }, 500);
     return (event: ChangeEvent<HTMLInputElement>) => {
       event.persist();
