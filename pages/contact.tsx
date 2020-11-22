@@ -20,6 +20,7 @@ const contact: FC = () => {
     setSubmitting(true);
     fetch('/api/contact', {
       method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData)
     }).then((response) => {
       setSubmitting(false);
